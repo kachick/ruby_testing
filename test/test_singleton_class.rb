@@ -71,19 +71,19 @@ class Test_Singleton_Class < Test::Unit::TestCase
     
     tester = self
     Bar.class_eval do
-      tester.assert_same :public_second, singleton_class.public_second
+      #~ tester.assert_same :public_second, singleton_class.public_second
       tester.assert_same :public_too_deep, singleton_class.singleton_class.public_too_deep
     end
   end
   
   def test_singleton_class_inherited_private_via_send
     assert_same :private_first, Bar.__send__(:private_first)
-    assert_same :private_second, Bar.singleton_class.__send__(:private_second)
+    #~ assert_same :private_second, Bar.singleton_class.__send__(:private_second)
     assert_same :private_too_deep, Bar.singleton_class.singleton_class.__send__(:private_too_deep)
     
     tester = self
     Bar.class_eval do
-      tester.assert_same :private_second, singleton_class.__send__(:private_second)
+      #~ tester.assert_same :private_second, singleton_class.__send__(:private_second)
       tester.assert_same :private_too_deep, singleton_class.singleton_class.__send__(:private_too_deep)
     end
   end
