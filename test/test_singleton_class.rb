@@ -39,4 +39,10 @@ class Test_Singleton_Class < Test::Unit::TestCase
     assert_same :hoge, Foo.singleton_class.singleton_class.hoge
   end
   
+  def test_singleton_class_loop_via_send
+    assert_same :foo, Foo.__send__(:foo)
+    assert_same :bar, Foo.singleton_class.__send__(:bar)
+    assert_same :hoge, Foo.singleton_class.singleton_class.__send__(:hoge)
+  end
+  
 end
