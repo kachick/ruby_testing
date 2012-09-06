@@ -51,7 +51,7 @@ class Test_Class_Copy < Test::Unit::TestCase
     cls = Class.new
     
     cls.singleton_class.class_eval do
-      define_method :initialize_copy do |original|
+      define_method :initialize_clone do |original|
         peep = :initialize_clone
       end
     end
