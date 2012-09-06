@@ -4,6 +4,10 @@ require 'test/unit'
 
 class Test_Object_Copy < Test::Unit::TestCase
   
+  def test_can_initialize_copy
+    assert_same true, Object.new.respond_to?(:initialize_copy, true)
+  end
+  
   def test_initialize_copy_dup
     peep = nil
     obj = Object.new
@@ -31,6 +35,10 @@ class Test_Object_Copy < Test::Unit::TestCase
     obj.clone
     assert_same :initialize_copy, peep
   end
+  
+  def test_can_initialize_dup
+    assert_same true, Object.new.respond_to?(:initialize_dup, true)
+  end
 
   def test_initialize_dup
     peep = nil
@@ -44,6 +52,10 @@ class Test_Object_Copy < Test::Unit::TestCase
     
     obj.dup
     assert_same nil, peep
+  end
+
+  def test_can_initialize_clone
+    assert_same true, Object.new.respond_to?(:initialize_clone, true)
   end
 
   def test_initialize_clone
