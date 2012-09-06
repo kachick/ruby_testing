@@ -15,7 +15,7 @@ class Test_Class_Copy < Test::Unit::TestCase
     end
     
     cls.dup
-    assert_same :initialize_copy, peep
+    assert_same nil, peep
   end
   
   def test_initialize_copy_clone
@@ -43,7 +43,7 @@ class Test_Class_Copy < Test::Unit::TestCase
     end
     
     cls.dup
-    assert_same :initialize_dup, peep
+    assert_same nil, peep
   end
 
   def test_initialize_clone
